@@ -45,8 +45,9 @@ services:
     ports:
       - "8085:80"   # access web UI on localhost:8085
     volumes:
-      - spark-data:/usr/share/nginx/html:ro  # CSVs + HTML/JS go here
+      - spark-data:/data:ro  # CSVs + HTML/JS go here
       - ./web-ui:/usr/share/nginx/html       # your HTML/JS/CSS
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
     networks:
       - enit_lab2_hive_hadoop_net
 volumes:
