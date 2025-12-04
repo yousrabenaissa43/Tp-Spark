@@ -58,6 +58,9 @@ services:
       ZOOKEEPER_TICK_TIME: 2000
     ports:
       - "2181:2181"
+    networks:
+      - enit_lab2_hive_hadoop_net
+
 
   kafka:
     image: confluentinc/cp-kafka:7.5.0
@@ -72,5 +75,8 @@ services:
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+    networks:
+     - enit_lab2_hive_hadoop_net
+
 volumes:
   spark-data:
